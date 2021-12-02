@@ -3,6 +3,7 @@ import './App.css';
 import dbRef,{userName,connectedRef} from './server/firebase';
 import { connect } from "react-redux";
 import { setUser,addParticipant,removeParticipant } from './store/actionCreator';
+import Screen from './components/Mainscreen/Screen';
 
 function App(props) {
   const participantsRef = dbRef.child("participants")
@@ -52,9 +53,8 @@ function App(props) {
   }, [props.user])
 
   return (
-    <div>
-      User: {JSON.stringify(props.user)}<br/>
-      Participants: {JSON.stringify(props.participants)}
+    <div className="App">
+      <Screen/>
     </div>
   );
   }
